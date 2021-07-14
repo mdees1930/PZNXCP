@@ -22,11 +22,11 @@ class Length
 class LoginRequest
 {
     #[NotBlank]
-    #[Length(min:4, max:10)]
+    #[Length(min: 4, max: 10)]
     public ?string $username;
 
     #[NotBlank]
-    #[Length(min:8, max:10)]
+    #[Length(min: 8, max: 10)]
     public ?string $password;
 }
 
@@ -55,7 +55,7 @@ function validateNotBlank(ReflectionProperty $property, Object $object): void
 
 function validateLength(ReflectionProperty $property, Object $object): void
 {
-    if (!$property->isInitialized($object) || $property->getValue($object)==null) {
+    if (!$property->isInitialized($object) || $property->getValue($object) == null) {
         return;//cancel validate, karena sudah ada di function validateNotBlank
     }
 
@@ -66,7 +66,7 @@ function validateLength(ReflectionProperty $property, Object $object): void
         $valueLength = strlen($value);
         if($valueLength < $Length->min)
             throw new Exception("Property $property->name is too short");
-        if($valueLength > $len->max)
+        if($valueLength > $Length->max)
             throw new Exception("Property $property->name is too long");        
 
 
