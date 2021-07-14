@@ -6,7 +6,7 @@ class NotBlank
 
 }
 
-
+#[Attribute(Attribute::TARGET_PROPERTY)]
 class Length
 {
     public int $min;
@@ -74,6 +74,6 @@ function validateLength(ReflectionProperty $property, Object $object): void
 }
 
 $request = new LoginRequest();
-$request->username = "Mds";
-$request->password = "Rahasia";
+$request->username = "Mds123";
+$request->password = "Rahasia123";
 validate($request);
